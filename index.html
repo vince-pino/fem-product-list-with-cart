@@ -25,15 +25,15 @@
 </head>
 <body class="bg-[hsl(14,86%,42%,0.03)] font-redhat">
 
-  <main class="flex mt-24 ml-28 mr-5 mb-20 gap-7">
+  <main class="flex flex-col ml-5 mt-10 mr-5 mb-20 gap-7 lg:flex-row xl:mt-24 xl:ml-28">
     <section class="flex-1">
       <h1 class="text-[40px] leading-none font-bold mb-9">
         Desserts
       </h1>
       <!-- Items -->
-      <div id="items-container" class="grid grid-cols-3 grid-flow-row gap-x-6 gap-y-8">
+      <div id="items-container" class="grid grid-cols-1 grid-flow-row gap-x-6 gap-y-8 sm:grid-cols-2 md:grid-cols-3">
         <div class="card relative">
-          <div class="bg-[url('/assets/images/image-waffle-desktop.jpg')] bg-no-repeat bg-cover h-60 w-full mb-9 rounded-lg">
+          <div id="image-container" class="bg-[url('/assets/images/image-waffle-desktop.jpg')] bg-no-repeat bg-cover h-60 w-full mb-9 rounded-lg">
           </div>
           <div class="text-sm font-thin">
             Waffle 
@@ -61,7 +61,7 @@
         </div>
        
         <div class="card relative">
-            <div class="bg-[url('/assets/images/image-creme-brulee-desktop.jpg')] bg-no-repeat bg-cover h-60 w-full mb-9 rounded-lg"></div>
+            <div id="image-container" class="bg-[url('/assets/images/image-creme-brulee-desktop.jpg')] bg-no-repeat bg-cover h-60 w-full mb-9 rounded-lg"></div>
             <div class="text-sm font-thin">
                 Crème Brûlée
             </div>
@@ -88,7 +88,7 @@
         </div>
 
         <div class="card relative">
-            <div class="bg-[url('/assets/images/image-macaron-desktop.jpg')] bg-no-repeat bg-cover h-60 w-full mb-9 rounded-lg"></div>
+            <div id="image-container" class="bg-[url('/assets/images/image-macaron-desktop.jpg')] bg-no-repeat bg-cover h-60 w-full mb-9 rounded-lg"></div>
             <div class="text-sm font-thin">
                 Macaron
             </div>
@@ -115,7 +115,7 @@
         </div>
 
         <div class="card relative">
-            <div class="bg-[url('/assets/images/image-tiramisu-desktop.jpg')] bg-no-repeat bg-cover h-60 w-full mb-9 rounded-lg"></div>
+            <div id="image-container" class="bg-[url('/assets/images/image-tiramisu-desktop.jpg')] bg-no-repeat bg-cover h-60 w-full mb-9 rounded-lg"></div>
             <div class="text-sm font-thin">
                 Tiramisu
             </div>
@@ -142,7 +142,7 @@
         </div>
 
         <div class="card relative">
-            <div class="bg-[url('/assets/images/image-baklava-desktop.jpg')] bg-no-repeat bg-cover h-60 w-full mb-9 rounded-lg"></div>
+            <div id="image-container" class="bg-[url('/assets/images/image-baklava-desktop.jpg')] bg-no-repeat bg-cover h-60 w-full mb-9 rounded-lg"></div>
             <div class="text-sm font-thin">
                 Baklava
             </div>
@@ -169,7 +169,7 @@
         </div>
 
         <div class="card relative">
-            <div class="bg-[url('/assets/images/image-meringue-desktop.jpg')] bg-no-repeat bg-cover h-60 w-full mb-9 rounded-lg"></div>
+            <div id="image-container" class="bg-[url('/assets/images/image-meringue-desktop.jpg')] bg-no-repeat bg-cover h-60 w-full mb-9 rounded-lg"></div>
             <div class="text-sm font-thin">
                 Pie
             </div>
@@ -196,7 +196,7 @@
         </div>
 
         <div class="card relative">
-            <div class="bg-[url('/assets/images/image-cake-desktop.jpg')] bg-no-repeat bg-cover h-60 w-full mb-9 rounded-lg"></div>
+            <div id="image-container" class="bg-[url('/assets/images/image-cake-desktop.jpg')] bg-no-repeat bg-cover h-60 w-full mb-9 rounded-lg"></div>
             <div class="text-sm font-thin">
                 Cake
             </div>
@@ -223,7 +223,7 @@
         </div>
 
         <div class="card relative">
-            <div class="bg-[url('/assets/images/image-brownie-desktop.jpg')] bg-no-repeat bg-cover h-60 w-full mb-9 rounded-lg"></div>
+            <div id="image-container" class="bg-[url('/assets/images/image-brownie-desktop.jpg')] bg-no-repeat bg-cover h-60 w-full mb-9 rounded-lg"></div>
             <div class="text-sm font-thin">
                 Brownie
             </div>
@@ -250,7 +250,7 @@
         </div>
 
         <div class="card relative">
-            <div class="bg-[url('/assets/images/image-panna-cotta-desktop.jpg')] bg-no-repeat bg-cover h-60 w-full mb-9 rounded-lg"></div>
+            <div id="image-container" class="bg-[url('/assets/images/image-panna-cotta-desktop.jpg')] bg-no-repeat bg-cover h-60 w-full mb-9 rounded-lg"></div>
             <div class="text-sm font-thin">
                 Panna Cotta
             </div>
@@ -279,7 +279,7 @@
 
     </section>
     <!-- Cart -->
-    <section class="bg-white p-6 pb-10 rounded-xl w-96 h-max flex flex-col">
+    <section class="bg-white p-6 pb-10 rounded-xl w-80 h-max flex flex-col m-auto sm:w-96 sm:m-auto lg:m-0">
       <div class="text-[hsl(14,86%,42%)] text-2xl font-bold mb-8">
         Your Cart (<span id="cart-quantity">0</span>)
       </div>

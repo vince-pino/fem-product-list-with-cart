@@ -1,5 +1,4 @@
 import { foodData } from './food-data.js';
-import { handleAddToCartClick, handleDecrementClick, handleIncrementClick, displayQuantity, displayCartQuantity, displayCartItems } from './utils.js';
 
 function displayAllItems() {
   // foodData.forEach((item) => {
@@ -48,6 +47,7 @@ function displayAllItems() {
     const addToCartBtn = card.querySelector("button");
     const btnText = addToCartBtn.querySelector("#btn-text");
     let quantity = 0;
+    const imageContainer = card.querySelector("#image-container");
     const cartIcon = addToCartBtn.querySelector("#cart-icon");
 
     const decrementBtn = addToCartBtn.querySelector("#decrement-btn");
@@ -68,6 +68,7 @@ function displayAllItems() {
       btnText.className = "text-white";
       quantity += 1;
       cartQuantity += 1;
+      imageContainer.classList.add("border-2", "border-[hsl(14,86%,42%)]");
       localStorage.setItem("cart-quantity", cartQuantity);
       displayQuantity();
       displayCartQuantity();
@@ -92,6 +93,7 @@ function displayAllItems() {
         btnText.className =
           "ml-2 font-semibold text-sm group-hover:text-[hsl(14,86%,42%)]";
         btnText.textContent = "Add to cart";
+        imageContainer.classList.remove("border-2", "border-[hsl(14,86%,42%)]");
         addToCartBtn.disabled = false;
       }
     }

@@ -723,6 +723,10 @@ video {
   clear: none;
 }
 
+.m-auto {
+  margin: auto;
+}
+
 .mb-20 {
   margin-bottom: 5rem;
 }
@@ -747,8 +751,8 @@ video {
   margin-left: 0.5rem;
 }
 
-.ml-28 {
-  margin-left: 7rem;
+.ml-5 {
+  margin-left: 1.25rem;
 }
 
 .mr-2 {
@@ -763,16 +767,24 @@ video {
   margin-right: 1.25rem;
 }
 
+.mt-10 {
+  margin-top: 2.5rem;
+}
+
 .mt-2 {
   margin-top: 0.5rem;
+}
+
+.mt-4 {
+  margin-top: 1rem;
 }
 
 .mt-24 {
   margin-top: 6rem;
 }
 
-.mt-4 {
-  margin-top: 1rem;
+.ml-28 {
+  margin-left: 7rem;
 }
 
 .box-border {
@@ -899,8 +911,8 @@ video {
   width: 1.25rem;
 }
 
-.w-96 {
-  width: 24rem;
+.w-80 {
+  width: 20rem;
 }
 
 .w-\[this-is\\\\\] {
@@ -1266,8 +1278,8 @@ video {
   grid-auto-flow: column dense;
 }
 
-.grid-cols-3 {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+.grid-cols-1 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
 }
 
 .flex-row {
@@ -1930,6 +1942,11 @@ video {
 .border-\[\#CAAFA7\] {
   --tw-border-opacity: 1;
   border-color: rgb(202 175 167 / var(--tw-border-opacity));
+}
+
+.border-\[hsl\(14\2c 86\%\2c 42\%\)\] {
+  --tw-border-opacity: 1;
+  border-color: hsl(14 86% 42% / var(--tw-border-opacity));
 }
 
 .border-gray-400 {
@@ -2808,8 +2825,70 @@ video {
 }
 
 @media (min-width: 640px) {
+  .sm\:col-span-2 {
+    grid-column: span 2 / span 2;
+  }
+
+  .sm\:m-auto {
+    margin: auto;
+  }
+
+  .sm\:w-96 {
+    width: 24rem;
+  }
+
+  .sm\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .sm\:items-center {
+    align-items: center;
+  }
+
+  .sm\:justify-center {
+    justify-content: center;
+  }
+
   .sm\:underline {
     text-decoration-line: underline;
+  }
+}
+
+@media (min-width: 768px) {
+  .md\:col-span-1 {
+    grid-column: span 1 / span 1;
+  }
+
+  .md\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .lg\:m-0 {
+    margin: 0px;
+  }
+
+  .lg\:ml-28 {
+    margin-left: 7rem;
+  }
+
+  .lg\:mt-24 {
+    margin-top: 6rem;
+  }
+
+  .lg\:flex-row {
+    flex-direction: row;
+  }
+}
+
+@media (min-width: 1280px) {
+  .xl\:mt-24 {
+    margin-top: 6rem;
+  }
+
+  .xl\:ml-28 {
+    margin-left: 7rem;
   }
 }
 
