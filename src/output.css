@@ -779,14 +779,6 @@ video {
   margin-top: 1rem;
 }
 
-.mt-24 {
-  margin-top: 6rem;
-}
-
-.ml-28 {
-  margin-left: 7rem;
-}
-
 .box-border {
   box-sizing: border-box;
 }
@@ -1987,6 +1979,10 @@ video {
   background-image: url('${item.desktop}');
 }
 
+.bg-\[url\(\'\.\$\{item\.desktop\}\'\)\] {
+  background-image: url('.${item.desktop}');
+}
+
 .bg-\[url\(\'\/assets\/images\/image-baklava-desktop\.jpg\'\)\] {
   background-image: url('/assets/images/image-baklava-desktop.jpg');
 }
@@ -2021,6 +2017,10 @@ video {
 
 .bg-\[url\(\'\/assets\/images\/image-waffle-desktop\.jpg\'\)\] {
   background-image: url('/assets/images/image-waffle-desktop.jpg');
+}
+
+.bg-\[url\(\$\{item\.desktop\}\)\] {
+  background-image: url(${item.desktop});
 }
 
 .decoration-slice {
@@ -2825,10 +2825,6 @@ video {
 }
 
 @media (min-width: 640px) {
-  .sm\:col-span-2 {
-    grid-column: span 2 / span 2;
-  }
-
   .sm\:m-auto {
     margin: auto;
   }
@@ -2841,24 +2837,12 @@ video {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .sm\:items-center {
-    align-items: center;
-  }
-
-  .sm\:justify-center {
-    justify-content: center;
-  }
-
   .sm\:underline {
     text-decoration-line: underline;
   }
 }
 
 @media (min-width: 768px) {
-  .md\:col-span-1 {
-    grid-column: span 1 / span 1;
-  }
-
   .md\:grid-cols-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
@@ -2869,26 +2853,18 @@ video {
     margin: 0px;
   }
 
-  .lg\:ml-28 {
-    margin-left: 7rem;
-  }
-
-  .lg\:mt-24 {
-    margin-top: 6rem;
-  }
-
   .lg\:flex-row {
     flex-direction: row;
   }
 }
 
 @media (min-width: 1280px) {
-  .xl\:mt-24 {
-    margin-top: 6rem;
-  }
-
   .xl\:ml-28 {
     margin-left: 7rem;
+  }
+
+  .xl\:mt-24 {
+    margin-top: 6rem;
   }
 }
 
