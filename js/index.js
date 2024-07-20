@@ -5,6 +5,7 @@ function displayAllItems() {
     const itemsContainer = document.querySelector("#items-container");
     itemsContainer.innerHTML += `
       <div class="card relative">
+          <div id="ID" data-id="${item.id}"></div>
           <div id="image-container" class="bg-[url('${item.desktop}')] bg-no-repeat bg-cover h-60 w-full mb-9 rounded-lg">
           </div>
           <div class="text-sm font-thin">
@@ -46,12 +47,14 @@ function displayAllItems() {
   cards.forEach((card) => {
     const addToCartBtn = card.querySelector("button");
     const btnText = addToCartBtn.querySelector("#btn-text");
-    let quantity = 0;
     const imageContainer = card.querySelector("#image-container");
     const cartIcon = addToCartBtn.querySelector("#cart-icon");
-
+    
     const decrementBtn = addToCartBtn.querySelector("#decrement-btn");
     const incrementBtn = addToCartBtn.querySelector("#increment-btn");
+
+    const id = card.querySelector("#ID").dataset.id;
+    let quantity = 0;
 
     function handleAddToCartClick() {
       addToCartBtn.className =
@@ -73,6 +76,7 @@ function displayAllItems() {
       displayQuantity();
       displayCartQuantity();
       displayCartItems();
+      displayAddedItem();
     }
     function handleDecrementClick() {
       if (quantity > 0) {
@@ -119,6 +123,31 @@ function displayAllItems() {
         document.querySelector("#illustration").style.display = "block";
         document.querySelector("#empty-cart").style.display = "block";
       }
+    }
+    function displayAddedItem() {
+      const foundItem = getItem(id);
+      const name = foundItem.name;
+      const price = (foundItem.price).toFixed(2);
+
+      const cartItemContainer = document.querySelector("#cart-items-container");
+      cartItemContainer.innerHTML += `
+        <div class="flex justify-between items-center pb-4 mb-4 border-b-2">
+          <div>
+            <div class="font-semibold">
+              ${name}
+            </div>
+            <span class="text-[hsl(14,86%,42%)] font-semibold mr-4">1x</span>
+            <span class="text-[#CAAFA7] mr-2">@ ${price}</span>
+            <span class="text-[#92807a]">$${price}</span>
+          </div>
+          <div class="flex items-center justify-center w-5 h-5 border-2 border-[#CAAFA7] rounded-full cursor-pointer duration-300 ease-out hover:border-gray-700 group">
+            <svg class="text-[#CAAFA7] duration-300 ease-out group-hover:text-gray-700" xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="none" viewBox="0 0 10 10"><path fill="currentColor" d="M8.375 9.375 5 6 1.625 9.375l-1-1L4 5 .625 1.625l1-1L5 4 8.375.625l1 1L6 5l3.375 3.375-1 1Z"/></svg>
+          </div>
+        </div>
+      `;
+    }
+    function getItem(id) {
+      return foodData.find((item) => item.id === id);
     }
 
     addToCartBtn.addEventListener("click", handleAddToCartClick);
