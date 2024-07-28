@@ -659,6 +659,10 @@ video {
   inset: -0.25rem;
 }
 
+.inset-0 {
+  inset: 0px;
+}
+
 .end-1 {
   inset-inline-end: 0.25rem;
 }
@@ -681,6 +685,10 @@ video {
 
 .isolation-auto {
   isolation: auto;
+}
+
+.z-10 {
+  z-index: 10;
 }
 
 .float-start {
@@ -735,6 +743,14 @@ video {
   margin: auto;
 }
 
+.mb-10 {
+  margin-bottom: 2.5rem;
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+
 .mb-20 {
   margin-bottom: 5rem;
 }
@@ -765,6 +781,10 @@ video {
 
 .mr-2 {
   margin-right: 0.5rem;
+}
+
+.mr-3 {
+  margin-right: 0.75rem;
 }
 
 .mr-4 {
@@ -910,17 +930,85 @@ video {
   height: 15rem;
 }
 
+.h-\[800px\] {
+  height: 800px;
+}
+
+.h-full {
+  height: 100%;
+}
+
 .h-max {
   height: -moz-max-content;
   height: max-content;
 }
 
-.h-80 {
-  height: 20rem;
+.h-\[80px\] {
+  height: 80px;
+}
+
+.h-\[px\] {
+  height: px;
+}
+
+.h-\[7px\] {
+  height: 7px;
+}
+
+.h-\[750px\] {
+  height: 750px;
+}
+
+.h-\[700px\] {
+  height: 700px;
+}
+
+.h-\[00px\] {
+  height: 00px;
+}
+
+.h-\[600px\] {
+  height: 600px;
+}
+
+.h-\[650px\] {
+  height: 650px;
+}
+
+.max-h-\[650px\] {
+  max-height: 650px;
+}
+
+.max-h-\[\] {
+  max-height: ;
+}
+
+.max-h-\[100px\] {
+  max-height: 100px;
+}
+
+.max-h-\[200px\] {
+  max-height: 200px;
+}
+
+.max-h-\[300px\] {
+  max-height: 300px;
+}
+
+.max-h-\[400px\] {
+  max-height: 400px;
+}
+
+.min-h-screen {
+  min-height: 100vh;
 }
 
 .w-1 {
   width: 0.25rem;
+}
+
+.w-12 {
+  width: 3rem;
 }
 
 .w-40 {
@@ -933,6 +1021,10 @@ video {
 
 .w-80 {
   width: 20rem;
+}
+
+.w-\[700px\] {
+  width: 700px;
 }
 
 .w-\[this-is\\\\\] {
@@ -1815,6 +1907,10 @@ video {
   border-radius: 0.25rem;
 }
 
+.rounded-2xl {
+  border-radius: 1rem;
+}
+
 .rounded-full {
   border-radius: 9999px;
 }
@@ -1979,6 +2075,10 @@ video {
   border-color: rgb(255 255 255 / var(--tw-border-opacity));
 }
 
+.bg-\[\#808080be\] {
+  background-color: #808080be;
+}
+
 .bg-\[hsl\(14\2c 86\%\2c 42\%\)\] {
   --tw-bg-opacity: 1;
   background-color: hsl(14 86% 42% / var(--tw-bg-opacity));
@@ -2001,50 +2101,6 @@ video {
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-}
-
-.bg-\[url\(\'\$\{item\.desktop\}\'\)\] {
-  background-image: url('${item.desktop}');
-}
-
-.bg-\[url\(\'assets\/images\/bg-pattern-top\.svg\'\)\] {
-  background-image: url('assets/images/bg-pattern-top.svg');
-}
-
-.bg-\[url\(\'assets\/images\/\'\)\] {
-  background-image: url('assets/images/');
-}
-
-.bg-\[url\(\'assets\/images\/im\'\)\] {
-  background-image: url('assets/images/im');
-}
-
-.bg-\[url\(\'assets\/images\/ima\'\)\] {
-  background-image: url('assets/images/ima');
-}
-
-.bg-\[url\(\'assets\/images\/image-baklava\'\)\] {
-  background-image: url('assets/images/image-baklava');
-}
-
-.bg-\[url\(\'assets\/images\/image-baklava-desktop\.jpg\'\)\] {
-  background-image: url('assets/images/image-baklava-desktop.jpg');
-}
-
-.bg-\[url\(\'\/assets\/images\/image-baklava-desktop\.jpg\'\)\] {
-  background-image: url('/assets/images/image-baklava-desktop.jpg');
-}
-
-.bg-\[url\(\'\/assets\/images\/image-wq-desktop\.jpg\'\)\] {
-  background-image: url('/assets/images/image-wq-desktop.jpg');
-}
-
-.bg-\[url\(\'\/assets\/images\/image--desktop\.jpg\'\)\] {
-  background-image: url('/assets/images/image--desktop.jpg');
-}
-
-.bg-\[url\(\'\/assets\/images\/image-brownie-desktop\.jpg\'\)\] {
-  background-image: url('/assets/images/image-brownie-desktop.jpg');
 }
 
 .decoration-slice {
@@ -2098,10 +2154,6 @@ video {
 .bg-clip-text {
   -webkit-background-clip: text;
           background-clip: text;
-}
-
-.bg-center {
-  background-position: center;
 }
 
 .bg-repeat {
@@ -2169,6 +2221,14 @@ video {
   padding: 0.25rem;
 }
 
+.p-10 {
+  padding: 2.5rem;
+}
+
+.p-5 {
+  padding: 1.25rem;
+}
+
 .p-6 {
   padding: 1.5rem;
 }
@@ -2183,12 +2243,25 @@ video {
   padding-bottom: 1rem;
 }
 
+.py-8 {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
 .pb-10 {
   padding-bottom: 2.5rem;
 }
 
 .pb-4 {
   padding-bottom: 1rem;
+}
+
+.pt-1 {
+  padding-top: 0.25rem;
+}
+
+.pt-4 {
+  padding-top: 1rem;
 }
 
 .text-left {
@@ -2254,6 +2327,11 @@ video {
 .text-2xl {
   font-size: 1.5rem;
   line-height: 2rem;
+}
+
+.text-5xl {
+  font-size: 3rem;
+  line-height: 1;
 }
 
 .text-\[40px\] {
@@ -2887,10 +2965,6 @@ video {
 
   .lg\:flex-row {
     flex-direction: row;
-  }
-
-  .lg\:bg-\[url\(\'assets\/images\/bg-pattern-bottom\.svg\'\)\] {
-    background-image: url('assets/images/bg-pattern-bottom.svg');
   }
 }
 

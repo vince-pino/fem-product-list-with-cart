@@ -260,10 +260,56 @@ function displayAllItems() {
       });
       totalCost.textContent = "$" + total.toFixed(2);
     }
-
+    
     addToCartBtn.addEventListener("click", handleAddToCartClick);
     decrementBtn.addEventListener("click", handleDecrementClick);
     incrementBtn.addEventListener("click", handleIncrementClick);
+
   });
+
+  function displayOrderedItems() {
+    document.querySelector(".confirm-order-modal").classList.remove("hidden");
+    document.querySelector(".confirm-order-modal").classList.add("flex");
+
+    const orderedItemsContainer = document.querySelector("#ordered-items-container");
+    const totalOrderCost = document.querySelector("#total").textContent;
+
+      const items = document.querySelectorAll(".cart-item");
+      items.forEach((item) => {
+        const itemID = item.querySelector(".cart-item-id").dataset.id;
+        const foundItem = foodData.find((item) => item.id === itemID);
+        const name = foundItem.name;
+        const price = foundItem.price.toFixed(2);
+        const imageUrl = foundItem.thumbnail;
+        const quantity = item.querySelector(".cart-item-quantity").textContent;
+        const total = item.querySelector(".total-item-price").textContent;
+
+        orderedItemsContainer.innerHTML += `
+          <div class="flex justify-between items-center border-b-2 pb-4 pt-4">
+              <div class="flex">
+                <img
+                  class="mr-3 h-12 w-12 rounded-lg border bg-cover"
+                  src="${imageUrl}"
+                  alt=""
+                />
+                <div>
+                  <div class="font-semibold">${name}</div>
+                  <span
+                    class="ordered-item-quantity mr-4 font-semibold text-[hsl(14,86%,42%)]"
+                  >
+                    ${quantity}
+                  </span>
+                  <span class="mr-2 text-[#CAAFA7]">@ ${price}</span>
+                </div>
+              </div>
+              <span class="total-ordered-item-price text-[#92807a]">${total}</span>
+            </div>
+        `;
+      });
+    document.querySelector("#total-order-confirmed").textContent = totalOrderCost;
+  }
+
+  const confirmBtn = document.querySelector("#confirm-button");
+  confirmBtn.addEventListener("click", displayOrderedItems);
 }
 displayAllItems();
