@@ -17,7 +17,7 @@ function displayAllItems() {
     <div class="text-rose-700 font-bold">
       $${item.price.toFixed(2)}
     </div>
-    <button class="flex items-center justify-center bg-white w-40 h-12 rounded-full border border-gray-400 absolute top-[220px] left-1/2 -translate-x-1/2 duration-300 ease-out hover:border-rose-900 group">
+    <button class="add-to-cart-btn flex items-center justify-center bg-white w-40 h-12 rounded-full border border-gray-400 absolute top-[220px] left-1/2 -translate-x-1/2 duration-300 ease-out hover:border-rose-900 group">
       <span id="decrement-btn" class="hidden">
           <svg class="text-white group-hover:text-red-400" xmlns="http://www.w3.org/2000/svg" width="10" height="2" fill="currentColor" viewBox="0 0 10 2">
               <path fill="currentColor" d="M0 .375h10v1.25H0V.375Z"/>
@@ -62,7 +62,7 @@ function displayAllItems() {
 
     function handleAddToCartClick() {
       addToCartBtn.className =
-        "flex items-center justify-between bg-[hsl(14,86%,42%)] w-40 h-12 px-3 rounded-full absolute top-[220px] left-1/2 -translate-x-1/2";
+        "add-to-cart-btn flex items-center justify-between bg-[hsl(14,86%,42%)] w-40 h-12 px-3 rounded-full absolute top-[220px] left-1/2 -translate-x-1/2";
       addToCartBtn.disabled = true;
 
       decrementBtn.className =
@@ -127,12 +127,14 @@ function displayAllItems() {
     function handleRemoveBtnClick() {
       const item = this.closest(".cart-item");
       const itemID = item.querySelector(".cart-item-id").dataset.id;
-      const cartItemQuantityEl = item.querySelector(".cart-item-quantity",).textContent;
-      const totalItemPriceEl = item.querySelector(".total-item-price").textContent;
+      const cartItemQuantityEl = item.querySelector(
+        ".cart-item-quantity",
+      ).textContent;
+      const totalItemPriceEl =
+        item.querySelector(".total-item-price").textContent;
       let totalItemPrice = parseFloat(totalItemPriceEl.replace("$", ""));
       let cartItemQuantity = parseFloat(cartItemQuantityEl.replace("x", ""));
       cartQuantity -= cartItemQuantity;
-      
 
       cards.forEach((card) => {
         const id = card.querySelector("#ID").dataset.id;
@@ -148,7 +150,7 @@ function displayAllItems() {
           let total = parseFloat(totalCost.textContent.replace("$", ""));
           total -= totalItemPrice;
           totalCost.textContent = "$" + total.toFixed(2);
-              
+
           addToCartBtn.className =
             "flex items-center justify-center bg-white w-40 h-12 rounded-full border border-gray-400 absolute top-[220px] left-1/2 -translate-x-1/2 duration-300 ease-out hover:border-rose-900 group";
           decrementBtn.className = "hidden";
@@ -175,8 +177,8 @@ function displayAllItems() {
       cartQuantityEl.textContent = cartQuantity;
 
       if (cartQuantity > 0) {
-        document.querySelector("#illustration").style.display = "none";
-        document.querySelector("#empty-cart").style.display = "none";
+        document.querySelector("#illustration").classList.add("hidden");
+        document.querySelector("#empty-cart").classList.add("hidden");
         document
           .querySelector("#total-cost-container")
           .classList.remove("hidden");
@@ -189,8 +191,8 @@ function displayAllItems() {
           .classList.add("flex");
         document.querySelector("#confirm-button").classList.remove("hidden");
       } else {
-        document.querySelector("#illustration").style.display = "block";
-        document.querySelector("#empty-cart").style.display = "block";
+        document.querySelector("#illustration").classList.remove("hidden");
+        document.querySelector("#empty-cart").classList.remove("hidden");
         document.querySelector("#total-cost-container").classList.add("hidden");
         document
           .querySelector("#total-cost-container")
@@ -260,32 +262,34 @@ function displayAllItems() {
       });
       totalCost.textContent = "$" + total.toFixed(2);
     }
-    
+
     addToCartBtn.addEventListener("click", handleAddToCartClick);
     decrementBtn.addEventListener("click", handleDecrementClick);
     incrementBtn.addEventListener("click", handleIncrementClick);
-
   });
 
   function displayOrderedItems() {
     document.querySelector(".confirm-order-modal").classList.remove("hidden");
     document.querySelector(".confirm-order-modal").classList.add("flex");
 
-    const orderedItemsContainer = document.querySelector("#ordered-items-container");
+    const orderedItemsContainer = document.querySelector(
+      "#ordered-items-container",
+    );
     const totalOrderCost = document.querySelector("#total").textContent;
 
-      const items = document.querySelectorAll(".cart-item");
-      items.forEach((item) => {
-        const itemID = item.querySelector(".cart-item-id").dataset.id;
-        const foundItem = foodData.find((item) => item.id === itemID);
-        const name = foundItem.name;
-        const price = foundItem.price.toFixed(2);
-        const imageUrl = foundItem.thumbnail;
-        const quantity = item.querySelector(".cart-item-quantity").textContent;
-        const total = item.querySelector(".total-item-price").textContent;
+    const items = document.querySelectorAll(".cart-item");
+    items.forEach((item) => {
+      const itemID = item.querySelector(".cart-item-id").dataset.id;
+      const foundItem = foodData.find((item) => item.id === itemID);
+      const name = foundItem.name;
+      const price = foundItem.price.toFixed(2);
+      const imageUrl = foundItem.thumbnail;
+      const quantity = item.querySelector(".cart-item-quantity").textContent;
+      const total = item.querySelector(".total-item-price").textContent;
 
-        orderedItemsContainer.innerHTML += `
-          <div class="flex justify-between items-center border-b-2 pb-4 pt-4">
+      orderedItemsContainer.innerHTML += `
+          <div class="ordered-item flex justify-between items-center border-b-2 pb-4 pt-4">
+          <div class="ordered-item-id hidden" data-id="${itemID}"></div>
               <div class="flex">
                 <img
                   class="mr-3 h-12 w-12 rounded-lg border bg-cover"
@@ -305,11 +309,85 @@ function displayAllItems() {
               <span class="total-ordered-item-price text-[#92807a]">${total}</span>
             </div>
         `;
+    });
+    document.querySelector("#total-order-confirmed").textContent =
+      totalOrderCost;
+  }
+  function handleStartNewOrderClick() {
+    // Modal elements
+    const confirmOrderModal = document.querySelector(".confirm-order-modal");
+    const orderedItemsContainer = document.querySelector(
+      "#ordered-items-container",
+    );
+    const totalOrderConfirmed = document.querySelector(
+      "#total-order-confirmed",
+    );
+
+    // Cart elements
+    const cartItemsContainer = document.querySelector("#cart-items-container");
+    const totalCostContainer = document.querySelector("#total-cost-container");
+    const carbonNeutralContainer = document.querySelector(
+      "#carbon-neutral-container",
+    );
+    const confirmButton = document.querySelector("#confirm-button");
+    const illustration = document.querySelector("#illustration");
+    const emptyCart = document.querySelector("#empty-cart");
+
+    const orderedItems = document.querySelectorAll(".ordered-item");
+    orderedItems.forEach((item) => {
+      const itemID = item.querySelector(".ordered-item-id").dataset.id;
+
+      const cards = document.querySelectorAll(".card");
+      cards.forEach((card) => {
+        const id = card.querySelector("#ID").dataset.id;
+        if (id === itemID) {
+          const button = card.querySelector(".add-to-cart-btn");
+          const decrementBtn = card.querySelector("#decrement-btn");
+          const incrementBtn = card.querySelector("#increment-btn");
+          const cartIcon = button.querySelector("#cart-icon");
+          const btnText = button.querySelector("#btn-text");
+          const imageContainer = card.querySelector("#image-container");
+
+          button.className =
+            "add-to-cart-btn flex items-center justify-center bg-white w-40 h-12 rounded-full border border-gray-400 absolute top-[220px] left-1/2 -translate-x-1/2 duration-300 ease-out hover:border-rose-900 group";
+          button.disabled = false;
+
+          decrementBtn.className = "hidden";
+          incrementBtn.className = "hidden";
+          cartIcon.classList.remove("hidden");
+          btnText.textContent = "Add to cart";
+          btnText.className =
+            "ml-2 font-semibold text-sm group-hover:text-[hsl(14,86%,42%)]";
+          imageContainer.classList.remove(
+            "border-2",
+            "border-[hsl(14,86%,42%)]",
+          );
+
+          localStorage.setItem("cart-quantity", "0");
+          cartQuantity = Number(localStorage.getItem("cart-quantity"));
+          document.querySelector("#cart-quantity").textContent = cartQuantity;
+        }
       });
-    document.querySelector("#total-order-confirmed").textContent = totalOrderCost;
+    });
+
+    // Reset modal
+    confirmOrderModal.classList.replace("flex", "hidden");
+    orderedItemsContainer.textContent = "";
+    totalOrderConfirmed.textContent = "";
+
+    // Reset cart
+    cartItemsContainer.textContent = "";
+    totalCostContainer.classList.replace("flex", "hidden");
+    carbonNeutralContainer.classList.replace("flex", "hidden");
+    confirmButton.classList.add("hidden");
+    illustration.classList.remove("hidden");
+    emptyCart.classList.remove("hidden");
   }
 
   const confirmBtn = document.querySelector("#confirm-button");
   confirmBtn.addEventListener("click", displayOrderedItems);
+
+  const startNewOrderBtn = document.querySelector("#start-new-order-button");
+  startNewOrderBtn.addEventListener("click", handleStartNewOrderClick);
 }
 displayAllItems();

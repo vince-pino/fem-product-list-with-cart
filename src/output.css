@@ -663,6 +663,21 @@ video {
   inset: 0px;
 }
 
+.inset-x-2 {
+  left: 0.5rem;
+  right: 0.5rem;
+}
+
+.inset-y-0 {
+  top: 0px;
+  bottom: 0px;
+}
+
+.inset-x-8 {
+  left: 2rem;
+  right: 2rem;
+}
+
 .end-1 {
   inset-inline-end: 0.25rem;
 }
@@ -930,10 +945,6 @@ video {
   height: 15rem;
 }
 
-.h-\[800px\] {
-  height: 800px;
-}
-
 .h-full {
   height: 100%;
 }
@@ -943,60 +954,12 @@ video {
   height: max-content;
 }
 
-.h-\[80px\] {
-  height: 80px;
-}
-
-.h-\[px\] {
-  height: px;
-}
-
-.h-\[7px\] {
-  height: 7px;
-}
-
-.h-\[750px\] {
-  height: 750px;
-}
-
-.h-\[700px\] {
-  height: 700px;
-}
-
-.h-\[00px\] {
-  height: 00px;
-}
-
-.h-\[600px\] {
-  height: 600px;
-}
-
-.h-\[650px\] {
-  height: 650px;
-}
-
-.max-h-\[650px\] {
-  max-height: 650px;
-}
-
-.max-h-\[\] {
-  max-height: ;
-}
-
-.max-h-\[100px\] {
-  max-height: 100px;
-}
-
 .max-h-\[200px\] {
   max-height: 200px;
 }
 
-.max-h-\[300px\] {
-  max-height: 300px;
-}
-
-.max-h-\[400px\] {
-  max-height: 400px;
+.max-h-\[650px\] {
+  max-height: 650px;
 }
 
 .min-h-screen {
@@ -2955,6 +2918,10 @@ video {
 @media (min-width: 768px) {
   .md\:grid-cols-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .md\:p-10 {
+    padding: 2.5rem;
   }
 }
 
